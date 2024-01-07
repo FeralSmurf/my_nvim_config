@@ -4,27 +4,26 @@
 -- See the kickstart.nvim README for more information
 --
 -- Nvim-Surround
+
 return {
-  {
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
-  },
   -- catppuccin theme
   {
     "catppuccin/nvim",
     config = function()
       vim.cmd("colorscheme catppuccin")
+
+      -- Set transparency
+      vim.api.nvim_exec([[
+        hi Normal guibg=NONE ctermbg=NONE
+        hi SignColumn guibg=NONE ctermbg=NONE
+        hi VertSplit guibg=NONE ctermbg=NONE
+        hi StatusLine guibg=NONE ctermbg=NONE
+        hi StatusLineNC guibg=NONE ctermbg=NONE
+        hi FoldColumn guibg=NONE ctermbg=NONE
+      ]], false)
     end,
     name = "catppuccin",
     priority = 1000,
   }
 }
-
-
-
-
 
